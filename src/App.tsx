@@ -25,10 +25,10 @@ class App extends React.Component {
           <h3>All Buttons</h3>
           <AllButtons />
         </p>
-        <p>
+        <div className="form-layout">
           <h3>Simple Form using Grid Layout</h3>
           <SampleFormView />
-        </p>
+        </div>
       </div>
     );
   }
