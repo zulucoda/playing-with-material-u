@@ -1,12 +1,4 @@
-import {
-  FormControl,
-  FormHelperText,
-  InputLabel,
-  MenuItem,
-  OutlinedInput,
-  Select,
-  TextField
-} from "@material-ui/core";
+import { Button, FormControl, FormControlLabel, FormHelperText, FormLabel, InputLabel, MenuItem, OutlinedInput, Radio, RadioGroup, Select, TextField } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import * as React from "react";
@@ -66,7 +58,7 @@ class SampleForm extends React.Component<any> {
           </Grid>
           <Grid item={true} xs={12}>
             <Grid item={true} xs={6}>
-            <FormControl variant="outlined" className={classes.formControl}>
+              <FormControl variant="outlined" className={classes.formControl}>
                 <InputLabel htmlFor="permission">Permission</InputLabel>
                 <Select
                   value=""
@@ -75,7 +67,11 @@ class SampleForm extends React.Component<any> {
                     name: "permission"
                   }}
                   input={
-                    <OutlinedInput labelWidth={80} name="permission" id="permission" />
+                    <OutlinedInput
+                      labelWidth={80}
+                      name="permission"
+                      id="permission"
+                    />
                   }
                 >
                   <MenuItem value="">
@@ -95,10 +91,22 @@ class SampleForm extends React.Component<any> {
           <Grid item={true} xs={12}>
             <h3>Mandatory Field</h3>
             <Grid item={true} xs={12}>
-              <h3>Yes</h3>
-            </Grid>
-            <Grid item={true} xs={12}>
-              <h3>No</h3>
+              <FormControl component="fieldset" className={classes.formControl}>
+                <FormLabel component="legend">Mandatory</FormLabel>
+                <RadioGroup
+                  aria-label="Mandatory"
+                  name="mandatory1"
+                  className={classes.group}
+                  value="yes"
+                >
+                  <FormControlLabel
+                    value="yes"
+                    control={<Radio />}
+                    label="Yes"
+                  />
+                  <FormControlLabel value="no" control={<Radio />} label="No" />
+                </RadioGroup>
+              </FormControl>
             </Grid>
           </Grid>
           <Grid
@@ -109,8 +117,14 @@ class SampleForm extends React.Component<any> {
             justify="flex-end"
             alignItems="center"
           >
-            <Grid item={true} xs={4}>
-              <h3>Save Button</h3>
+            <Grid item={true} xs={1}>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+              >
+                SAVE
+              </Button>
             </Grid>
           </Grid>
         </Grid>
